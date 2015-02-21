@@ -1,0 +1,167 @@
+
+
+.current{
+
+}
+
+
+body {
+	background-image:url('../resources/images/books.jpg');
+	background-size:100%;
+//	background-color:#DFE0E6;
+
+	margin: 0px 0px 0px 0px;
+}
+
+#main{
+	
+}
+
+#content{
+	max-height:3200px;
+}
+
+
+#subcontent1{
+	background-image:url('../resources/images/musiccollection.jpg');
+	//background-color:#333333;
+	height:500px;
+	//background-color:black;
+	//display:block;	
+}
+#firstblock{
+	color:white;
+	//font-family:Roboto-Regular;
+	font-family:Harabara;
+	padding-top:90px;
+	font-size:48px;
+	//font-weight:bold;
+}
+
+#firstblock table{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.loginorsignup{
+	margin-top:110px;
+	position:relative;	
+}
+
+.loginorsignup span{
+	color:white;
+	font-weight:bold;
+	font-family:Harabara;
+	font-size:18px;
+}
+
+.txtlogin{
+	position:absolute;
+	left:50%;
+	top:0px;
+	margin-left:-160px;
+	padding:14px 30px 14px 36px;
+	//background-color:rgb(0,185,0);
+	background-color:rgb(1,147,224);
+	width:70px;
+	border-radius:4px;
+	cursor:pointer;
+	transition:all 0.6s ease;
+}
+
+.txtsignup{
+	position:absolute;
+	left:50%;
+	top:0px;
+	margin-left:-10px;
+	padding:14px 30px 14px 36px;
+	//background-color:rgb(185,0,0);
+	background-color:#666666;
+	width:70px;
+	border-radius:4px;
+	cursor:pointer;
+	transition:all 0.6s ease;
+}
+
+
+.txtlogin:hover{
+background-color:rgb(28,111,171);
+}
+
+.txtsignup:hover{
+	background-color:#333333;
+}
+
+.subcontent{
+	height:auto;
+	width:100%;
+	background-color:#555555;
+	//background-color:rgb(0,0,215);
+	margin-top:18px;
+	padding-top:30px;
+	padding-bottom:40px;
+	font-family:Roboto-Light;
+	font-weight:bold;
+	font-size:14px;
+}
+
+.contentheader{
+	margin-bottom:20px;
+	padding-left:5px;
+}
+
+.contentheader table{
+	margin-left:auto;
+	margin-right:auto;
+}
+
+.contentheader td{
+	color:white;
+	font-family:Harabara;
+	font-size:32px;
+}
+
+.detail{
+	min-height:200px;
+	margin-top:18px;
+	background-image:url('../resources/smulebg.png');
+	font-family:Roboto-Light;
+	padding:80px 80px 40px 130px;
+}
+
+.detail h2{
+	margin-bottom:14px;
+}
+
+.footer{
+	position:relative;
+	height:200px;
+}
+
+.footerlink{
+	position:absolute;
+	top:40px;
+	left:40px;
+	color:white;
+	font-family:Roboto-Light;
+}
+
+.footerlink a{
+	padding-right:10px;
+	padding-left:10px;
+}
+
+.copyright{
+	position:absolute;
+	bottom:20px;
+	left:50%;
+	margin-left:-160px;
+	color:white;
+	font-family:Roboto-Light;
+}
+
+
+
+
+
+

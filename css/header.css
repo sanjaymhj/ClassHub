@@ -1,0 +1,98 @@
+@font-face {
+  font-family: 'Harabara';
+  src: url('../resources/font/Harabara Mais Demo.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Oswald-Bold';
+  src: url('../resources/font/oswaldbold/Oswald-Bold.woff') format('woff'),
+       url('../resources/font/oswaldbold/Oswald-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../resources/font/robotolight/Roboto-Light.ttf') format('truetype');
+}
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+#header {
+	width:100%;
+	//background-color:black;
+	background: rgb(0, 0, 0); /*for browser that does not support rgba */
+	background-color: rgba(0, 0, 0, 0.7);
+	height:56px;
+	position:fixed;
+	top:0px;
+	z-index:99;
+	box-shadow: 5px 5px 2px #999999;
+}
+
+#header h2{
+
+	color:white;
+	font-family: 'Oswald-Bold',sans-serif;
+	float:left;
+	left:100px;
+	margin-left:16px;
+	margin-top:8px;
+}
+
+#btnsearch{
+	position:absolute;
+	left:168px;
+	top:5px;
+}
+
+#divtxtsearch{
+	position:absolute;
+	left:210px;
+	margin-top:5px;
+}
+
+#txtsearch{
+	margin-top:8px;
+	min-width: 500px;
+	min-height: 28px;
+	border: 0.2px solid #c7d0d2;
+	border-radius: 16px;
+	padding-left:10px;
+	padding-right:10px;
+}
+
+
+
+#headerlink{
+	position:absolute;
+	margin-top:14px;
+	right:150px;
+	font-family: 'Oswald-Bold', sans-serif;
+}
+
+
+/*.headerlinkactive
+{
+	background-color:#AEDB17;
+}*/
+#headerlink div{
+width:100px;
+height:100%;
+display:inline;
+}
+
+#headerlink a{
+	text-decoration:none;
+	padding: 18px 10px 18px 10px;
+	color:white;
+}
+
+#header #settings{
+	position:absolute;
+	top:12px;
+	right:40px;
+}
+#headerlink a:hover{
+	//background-color:#AEDB17;
+border-bottom: 3px solid rgb(161,235,253);
+}

@@ -1,0 +1,75 @@
+/*----------------------------------- Special Galleries */
+
+figure {
+    margin: 0;
+}
+.crsl-item img{
+	width:100%;
+	height:auto;
+}
+
+.crsl-item figcaption{
+	box-sizing: border-box;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	padding: 10px;
+	margin-bottom:5px;
+	color: #FFF;
+	background: rgba(0,0,0,.5);
+}
+
+/* Custom controls */
+.subcontent{
+	position: relative;
+}
+.subcontent .crsl-nav{
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+}
+.subcontent .crsl-items:after{
+	display: block;
+	clear: both;
+	content: '';
+}
+.subcontent .previous, .subcontent .next{
+	position: absolute;
+	top: 50%;
+	width: 40px;
+	height: 40px;
+	margin-top: -20px;
+	//text-indent: 8px;
+	font-size:32px;
+	font-weight:bold;
+	text-decoration:none;
+	color: #FFF;
+	background: rgba(0, 0, 0, .80) url(images/previous-next.png) no-repeat 0 0;
+	z-index: 10;
+	/* border radius */
+	-moz-border-radius: 20px;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
+	/* transition */
+	-webkit-transition: background .2s ease-out;
+	-moz-transition: background .2s ease-out;
+	-o-transition: background .2s ease-out;
+	transition: background .2s ease-out;
+}
+.subcontent .previous:hover, .subcontent .next:hover{
+	background-color: rgba(0,0,0, .95);
+}
+.subcontent .previous{
+	left: 0;
+	background-position: 0 0;
+}
+.subcontent .next{
+	right: 0;
+	background-position: 100% 0;
+}
+.subcontent .crsl-item{
+	margin-bottom: 0;
+}

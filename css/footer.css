@@ -1,0 +1,52 @@
+@font-face {
+  font-family: 'Harabara';
+  src: url('../resources/font/Harabara Mais Demo.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Oswald-Bold';
+  src: url('../resources/font/oswaldbold/Oswald-Bold.woff') format('woff'),
+       url('../resources/font/oswaldbold/Oswald-Bold.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Roboto-Light';
+  src: url('../resources/font/robotolight/Roboto-Light.ttf') format('truetype');
+}
+
+/*basic reset*/
+* {margin: 0; padding: 0;}
+
+footer {
+	width:100%;
+	//background-color:black;
+	background: rgb(0, 0, 0); /*for browser that does not support rgba */
+	background-color: rgba(0, 0, 0, 0.7);
+	height:50px;
+	position:fixed;
+	bottom:0;
+	z-index:99;
+
+}
+.choice{
+	width:100px;
+	color:white;
+	display:inline; 	
+padding: 18px 10px 18px 10px;
+
+}
+.choice:hover{
+	background-color:#AEDB17;
+	
+}
+#footerlink{
+	position:absolute;
+	margin-top:14px;
+	/*right:150px;*/
+	left:50px;
+	font-family: 'Oswald-Bold', sans-serif;
+}
+
+
+
+

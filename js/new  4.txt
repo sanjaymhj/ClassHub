@@ -1,0 +1,1 @@
+accept='image/gif, image/jpeg, image/png'

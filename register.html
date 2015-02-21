@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title></title>
+
+<link rel="stylesheet" href="css/header.css">
+<link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" href="css/loginstyle.css">
+
+
+
+<!-- jQuery -->
+<script src="js/jquery-latest.js" type="text/javascript"></script>
+<script src="js/jquery-ui-1.10.4.custom.js"></script>
+<style>
+	.error{
+		background-color:rgb(225,0,0);
+		color:white;
+		margin-top:50px;
+		font-family:Roboto-Light;
+	}
+	.error table{
+		margin-left:auto;
+		margin-right:auto;
+	}
+        body {
+	font-family: montserrat, arial, verdana;
+	background-image:url('resources/images/books_b.jpg');
+	background-size:100%;
+//	background-color:#DFE0E6;
+	margin: 0px 0px 0px 0px;
+}
+
+</style>
+<script>
+
+	$(document).ready(function() {  
+				$('#loginform').hide(); //initially hides the login form
+				$('.error').hide();
+				$('#clicklogin').on('click',function(){ //function to show login form
+					$('#loginform').fadeIn(200); //login form appears with fadeIn animation
+					$('#content').css({opacity:0.1}); //makes the background opacity to 0.1
+				});	
+				
+				$('#content').click(function(){ //function called when the content area is clicked
+					$('#loginform').fadeOut(200); // hides the login from with fadeOut animation
+					$('#content').css({opacity:1}); //restores the opacity of content area(makes the content visible)
+				});
+				
+				$('#register').click(function(){
+					var check = 0;
+					$error = $('.error td');
+					var errormsg ='';
+					
+					var username = document.getElementById('username').value;
+					var email = document.getElementById('email').value;
+					var address = document.getElementById('address').value;
+					var fname = document.getElementById('fname').value;
+					var lname = document.getElementById('lname').value;
+					var mname = document.getElementById('mname').value;
+					var password = document.getElementById('pswd').value;
+					var cpassword = document.getElementById('confirmpswd').value;
+					if(username ==''){
+						errormsg = 'Please enter a username';
+						check = 1;
+					}else if(email == ''){
+						errormsg = 'Please enter an email';
+						check = 1;
+					}else if(address == ''){
+						errormsg = 'Please enter an address';
+						check = 1;
+					}else if(fname == ''){
+						errormsg = 'Please enter your first name';
+						check = 1;
+					}else if(lname == ''){
+						errormsg = 'Please enter your last name';
+						check = 1;
+					}else if(password == ''){
+						errormsg = 'Cannot leave confirm password empty!';
+						check = 1;
+					}else if(cpassword == ''){
+						errormsg = 'Cannot leave confirm password empty!';
+						check = 1;
+					}else if(password.length <6){
+						errormsg = 'Password must be atleast 6 characters long!';
+						check = 1;
+					}else if(password !== cpassword){
+						errormsg = 'Password do not match!';
+						check = 1;
+					}
+					if(check === 1){
+						$error.html(errormsg);
+						$('.error').show();
+					}else{
+						$.post('register.php',{
+							'username':username,
+							'email':email,
+							'address':address,
+							'password':password,
+							'cpassword':cpassword,
+							'fname':fname,
+							'lname':lname,
+							'mname':mname
+						},function(data){
+							$error.html(data);
+							$('.error').show();
+						});
+					}
+				});
+				
+	});
+	
+				function passwordCheck(){
+				var pswd = document.getElementById('pswd').value;
+				var confirmPswd = document.getElementById('confirmpswd').value;
+					if(pswd == '' && confirmPswd == ''){
+						document.getElementById('errormsg').innerHTML = '';
+					}else if(pswd == confirmPswd){
+						document.getElementById('errormsg').innerHTML = 'Password Matched';
+						document.getElementById('errormsg').style.color = 'green';
+						document.getElementById("btnSignUp").disabled = false; 
+					}else{
+						document.getElementById('errormsg').innerHTML = 'Password do not match!';
+						document.getElementById('errormsg').style.color = 'red';
+						document.getElementById("btnSignUp").disabled = true; 
+					}
+			}
+	
+</script>
+
+</head>
+<body  >
+
+<div id="header"><h2 style="margin-left: 100px">ClassHub</h2>
+
+					
+	<div id="headerlink" style="z-index:-99;">
+		<a href="index.php" class="leftheader">Home</a>
+		<a href="#" class="leftheader">About Us</a>
+		<a href="#" class="leftheader">Contact </a>
+		<a href="#" class="leftheader" id="clicklogin">Log In</a>
+	</div>
+</div>
+<div id="content">
+	<form id="msform" action="api/register.php" method="POST" enctype="multipart/form-data">
+		<!-- progressbar -->
+		<ul id="progressbar">
+			<li class="active">Account Setup</li>
+			<li>Social Profiles</li>
+			<li>Personal Details</li>
+		</ul>
+		<!-- fieldsets -->
+		<fieldset>
+			<h2 class="fs-title">Create your account</h2>
+                        <h3 class="fs-subtitle">Your identity here.</h3>
+			<input type="text" name="username" id="username" placeholder="Choose a User Name" />
+			
+                        <input type="password" name="password" id="pswd" placeholder="Password" onKeyup="passwordCheck()"/>
+			<input type="password" name="cpassword" id="confirmpswd" placeholder="Confirm Password" onKeyup="passwordCheck()" /><div id="errormsg"></div>
+			<input type="button" name="next" class="next action-button" value="Next" />
+		</fieldset>
+		<fieldset>
+			<h2 class="fs-title">Social Profiles</h2>
+			<h3 class="fs-subtitle">Your presence on the social network</h3>
+			<input type="text" name="email" id="email" placeholder="Email" />
+			
+                        <input type="file" name="file" id="file" />
+			<input type="button" name="previous" class="previous action-button" value="Previous" />
+			<input type="button" name="next" class="next action-button" value="Next" />
+		</fieldset>
+		<fieldset>
+			<h2 class="fs-title">Personal Details</h2>
+                        <h3 class="fs-subtitle">We will never sell it.</h3>
+			<input type="text" name="name" id="fname" placeholder="Full Name" />
+			
+			<textarea name="address" id="address" placeholder="Address"></textarea>
+			<input type="button" name="previous" class="previous action-button" value="Previous" />
+			<input type="submit" name="submit" id="register" class="action-button" value="Submit" />
+		</fieldset>
+	</form>
+</div>
+
+<div class="error">
+	<table>
+		<tr>
+			<td>Username already exists</td>
+		</tr>
+	</table>
+</div>
+
+	<!--   Login     -->
+<div id="loginform">
+				<h2 style="font-family: 'Oswald-Light', sans-serif; color:white; font-size:24px;"><center>Login</center></h2>
+								  <form method="post" action="login.php" class="login">
+									<p>
+									  <label for="login">UserName:</label>
+									  <input type="text" name="username" id="login" value="Enter your username">
+									</p>
+
+									<p>
+									  <label for="password">Password:</label>
+									  <input type="password" name="password" id="password" value="4815162342">
+									</p>
+
+									<p class="login-submit">
+									  <button type="submit" class="login-button">Login</button>
+									</p>
+
+									<p class="forgot-password"><a href="register.html">Sign Up!</a></p>
+								  </form>
+<!--
+								  <section class="about">
+									<p class="about-links">
+									  <a onclick="closelogin()" style="cursor:pointer;">Close</a>
+									  <a href="http://www.cssflow.com/snippets/dark-login-form.zip" target="_parent">Sign Up</a>
+									</p>
+									<p class="about-author">
+									  &copy; 2012&ndash;2013 <a href="http://thibaut.me" target="_blank">Thibaut Courouble</a> -
+									  <a href="http://www.cssflow.com/mit-license" target="_blank">MIT License</a><br>
+									  Original PSD by <a href="http://365psd.com/day/2-234/" target="_blank">Rich McNabb</a>
+								  </section>
+-->			
+			</div>
+
+<script src="js/register.js" type="text/javascript"></script>
+<!-- jQuery easing plugin -->
+<script src="js/jquery.easing.min.js" type="text/javascript"></script>
+
+</body>
+</html>
